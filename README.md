@@ -61,3 +61,5 @@ Build repeatable code as components
 Refine Greater than and less than button's
     - Ability to determine the values you are searching for
 
+Update Search Buttons to respond to pressing the "enter" key
+

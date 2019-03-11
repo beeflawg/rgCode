@@ -3,6 +3,9 @@
 ### Heroku Deployment - ([Link](https://whispering-ocean-89314.herokuapp.com/))
 https://<i></i>whispering-ocean-89314.herokuapp.<i></i>com/
 
+### Github Link - ([Link](https://github.com/beeflawg/rgCode))
+https://<i></i>github.<i></i>com/beeflawg/rgCode
+
 ### Run Locally
 1) Run "npm install" (with out "") in the CLI at the root dir of app
 

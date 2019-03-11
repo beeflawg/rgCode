@@ -8,7 +8,7 @@ const capitalize = (phrase) => {
     .join(' ');
 };
 
-// Make a get request to our api route that will return every "long" book (300 pages or more)
+// Make a get request to our api route that will return every "long" receipt ($50 or more)
 $.get("/api/books/long", function (data) {
 
   // Array to hold price values
@@ -21,7 +21,7 @@ $.get("/api/books/long", function (data) {
     // Push price data to arr
     arr.push(data[i].price);
 
-    // Create a parent div to hold book data
+    // Create a parent div to hold receipt data
     var wellSection = $("<div>");
     // Add a class to this div: 'well'
     wellSection.addClass("well");
@@ -30,7 +30,7 @@ $.get("/api/books/long", function (data) {
     // Append the well to the well section
     $("#well-section").append(wellSection);
 
-    // Now  we add our book data to the well we just placed on the page
+    // Now  we add our receipt data to the well we just placed on the page
     // Div Format
     // $("#book-well-" + i).append("<h6>Entry: " + (i + 1) + "</h6>");
     // $("#book-well-" + i).append("<h6>" + moment(data[i].date).format('L') + "</h6>");
@@ -39,15 +39,15 @@ $.get("/api/books/long", function (data) {
     // $("#book-well-" + i).append("<h6>Price: $" + data[i].price + "</h6>");
     // $("#book-well-" + i).append("<button class='delete' data-id='" + data[i].id + "'>DELETE</button>");
 
-        // Table Format
-        $("#table").append("<tr>"
-        + "<td>" + (i + 1) + "</td>"
-        + "<td>" + moment(data[i].date).format('L') + "</td>"
-        + "<td>" + capitalize(data[i].category)+ "</td>"
-        + "<td>" + capitalize(data[i].name) + "</td>"
-        + "<td>" + data[i].price + "</td>"
-        + "<td>" + "<button class='delete' data-id='" + data[i].id + "'>DELETE</button>" + "</td>"
-        + "</tr>"
+    // Table Format
+    $("#table").append("<tr>"
+      + "<td>" + (i + 1) + "</td>"
+      + "<td>" + moment(data[i].date).format('L') + "</td>"
+      + "<td>" + capitalize(data[i].category) + "</td>"
+      + "<td>" + capitalize(data[i].name) + "</td>"
+      + "<td>" + data[i].price + "</td>"
+      + "<td>" + "<button class='delete' data-id='" + data[i].id + "'>DELETE</button>" + "</td>"
+      + "</tr>"
     );
   }
 

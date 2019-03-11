@@ -9,15 +9,15 @@ const capitalize = (phrase) => {
 };
 
 
-// Make a get request to our api route that will return every book
+// Make a get request to our api route that will return every receipt
 $.get("/api/all", function (data) {
 
   // Array to hold price values
   var arr = [];
   var sum = 0;
-  // For each book that our server sends us back
+  // For each receipt that our server sends us back
   for (var i = 0; i < data.length; i++) {
-    
+
     // Push price data to arr
     arr.push(data[i].price);
 
@@ -39,15 +39,15 @@ $.get("/api/all", function (data) {
     // $("#book-well-" + i).append("<h6>Price: $" + data[i].price + "</h6>");
     // $("#book-well-" + i).append("<button class='delete' data-id='" + data[i].id + "'>DELETE</button>");
 
-        // Table Format
-        $("#table").append("<tr>"
-        + "<td>" + (i + 1) + "</td>"
-        + "<td>" + moment(data[i].date).format('L') + "</td>"
-        + "<td>" + capitalize(data[i].category)+ "</td>"
-        + "<td>" + capitalize(data[i].name) + "</td>"
-        + "<td>" + data[i].price + "</td>"
-        + "<td>" + "<button class='delete' data-id='" + data[i].id + "'>DELETE</button>" + "</td>"
-        + "</tr>"
+    // Table Format
+    $("#table").append("<tr>"
+      + "<td>" + (i + 1) + "</td>"
+      + "<td>" + moment(data[i].date).format('L') + "</td>"
+      + "<td>" + capitalize(data[i].category) + "</td>"
+      + "<td>" + capitalize(data[i].name) + "</td>"
+      + "<td>" + data[i].price + "</td>"
+      + "<td>" + "<button class='delete' data-id='" + data[i].id + "'>DELETE</button>" + "</td>"
+      + "</tr>"
     );
 
 
@@ -61,7 +61,7 @@ $.get("/api/all", function (data) {
   for (var i = 0; i < arr.length; i++) {
     sum += parseFloat(arr[i])
   }
-  
+
   // Console log sum to check values
   console.log(sum);
   console.log(parseFloat(Math.round(sum * 100) / 100).toFixed(2));
@@ -74,13 +74,13 @@ $.get("/api/all", function (data) {
   // Add a class to this div: 'total'
   totalSection.addClass("total");
   // Add an id to the total
-  totalSection.attr("id","receipt-total")
+  totalSection.attr("id", "receipt-total")
   // Append the total to the total section
   $("#total-section").append(totalSection);
 
   // Add total to the page
   $("#receipt-total").append("<h6>$" + sum + "</h6>");
-  
+
   // Delete click event to remove data record
   $(".delete").click(function () {
 
